@@ -1,47 +1,99 @@
-# Xray VLESS Reality Автоустановка
+# VLESS-Reality-autoinstall
 
-Скрипт для автоматической установки и настройки Xray-core с поддержкой VLESS + Reality, генерацией ключей, созданием systemd-сервиса и добавлением новых пользователей.
+<details>
+<summary>🌍 Switch language / Переключить язык</summary>
 
-## Быстрый старт
+- [English](#english)
+- [Русский](#русский)
 
-Скопируйте и выполните следующие команды на вашем сервере (Ubuntu/Debian):
+</details>
+
+---
+
+## English
+
+This repository provides an automated installation script for the VLESS protocol using REALITY — a new, advanced security layer for Xray-core.
+
+### Features
+
+- Fully automated, interactive installation
+- Compatible with most Linux distributions (Debian, Ubuntu, CentOS, etc.)
+- Installs and configures Xray-core with VLESS and REALITY
+- Automatically sets up firewall rules and required dependencies
+- Generates client configuration for immediate use
+
+### Quick Installation
+
+Run this command as root (or with sudo):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Kvilloks/xray-vless-reality-autoinstall/main/install-xray-auto.sh -o /tmp/install-xray-auto.sh
-dos2unix /tmp/install-xray-auto.sh 2>/dev/null || sed -i 's/\r$//' /tmp/install-xray-auto.sh
-chmod +x /tmp/install-xray-auto.sh
-bash /tmp/install-xray-auto.sh
+curl -fsSL https://raw.githubusercontent.com/Kvilloks/xray-vless-Reality-autoinstall/main/install-xray-reality.sh -o /tmp/install-xray-reality.sh && dos2unix /tmp/install-xray-reality.sh 2>/dev/null || sed -i 's/\r$//' /tmp/install-xray-reality.sh && chmod +x /tmp/install-xray-reality.sh && bash /tmp/install-xray-reality.sh
 ```
 
-## Что делает скрипт
+### Manual Usage
 
-- Устанавливает необходимые зависимости: `curl`, `wget`, `jq`, `qrencode`, `socat`, `unzip`
-- Скачивает и устанавливает [Xray-core](https://github.com/XTLS/Xray-core)
-- Генерирует ключи x25519 для протокола Reality
-- Создаёт базовый конфиг для VLESS + Reality с одним пользователем
-- Добавляет новых пользователей при повторном запуске скрипта
-- Создаёт и активирует systemd-сервис для автозапуска Xray
-- Генерирует ссылку формата VLESS и QR-код для удобного подключения
+1. Clone or download the script from this repository.
+2. Give execution permission:
+   ```bash
+   chmod +x autoinstall.sh
+   ```
+3. Run as root:
+   ```bash
+   sudo ./autoinstall.sh
+   ```
+4. Follow the on-screen instructions.
 
-## Как добавить нового пользователя
+### Requirements
 
-Каждый повторный запуск скрипта добавляет нового пользователя (UUID) в конфиг, перезапускает Xray и выводит новую ссылку и QR-код.
+- A clean installation of Linux (recommended: Debian/Ubuntu)
+- Root privileges
+- Open required ports (configurable for REALITY, typically 443)
 
-## Где искать конфиги и ключи
+### Disclaimer
 
-- Бинарник Xray: `/usr/local/bin/xray`
-- Конфиг Xray: `/etc/xray/config.json`
-- Ключи Reality: `/etc/xray/private.key`, `/etc/xray/public.key`
-- QR-код: `/tmp/vless_qr.png`
+Use this script at your own risk. Make sure to comply with your local laws and regulations.
 
-## Пример ссылки для подключения
+---
 
+## Русский
+
+Данный репозиторий содержит автоматизированный скрипт для установки протокола VLESS с использованием REALITY — нового поколения защиты для Xray-core.
+
+### Возможности
+
+- Полностью автоматизированная установка с интерактивным процессом
+- Совместимость с большинством дистрибутивов Linux (Debian, Ubuntu, CentOS и др.)
+- Установка и настройка Xray-core с VLESS и REALITY
+- Автоматическая настройка firewall и всех необходимых зависимостей
+- Генерация клиентской конфигурации для мгновенного использования
+
+### Быстрая установка
+
+Запустите эту команду от root (или через sudo):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Kvilloks/xray-vless-Reality-autoinstall/main/install-xray-reality.sh -o /tmp/install-xray-reality.sh && dos2unix /tmp/install-xray-reality.sh 2>/dev/null || sed -i 's/\r$//' /tmp/install-xray-reality.sh && chmod +x /tmp/install-xray-reality.sh && bash /tmp/install-xray-reality.sh
 ```
-vless://<UUID>@<SERVER_IP>:443?encryption=none&security=reality&type=tcp&flow=xtls-rprx-vision&sni=www.google.com&fp=chrome&alpn=h2&pbk=<PUBLIC_KEY>&sid=<SHORT_ID>#VLESS-Reality
-```
 
-## Требования
+### Ручное использование
 
-- Debian/Ubuntu сервер с правами root
-- Открыт порт 443 (или другой, если измените в скрипте)
+1. Клонируйте или скачайте скрипт из этого репозитория.
+2. Дайте права на выполнение:
+   ```bash
+   chmod +x autoinstall.sh
+   ```
+3. Запустите от имени root:
+   ```bash
+   sudo ./autoinstall.sh
+   ```
+4. Следуйте инструкциям на экране.
 
+### Требования
+
+- Чистая установка Linux (рекомендуется: Debian/Ubuntu)
+- Root-права
+- Открытые необходимые порты (обычно 443, можно настроить для REALITY)
+
+### Дисклеймер
+
+Используйте скрипт на свой страх и риск. Перед использованием убедитесь, что соблюдаете законы вашей страны.
