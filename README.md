@@ -27,7 +27,7 @@ This repository provides an automated installation script for the VLESS protocol
 Run this command as root (or with sudo):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Kvilloks/xray-vless-Reality-autoinstall/main/install-xray-reality.sh -o /tmp/install-xray-reality.sh && dos2unix /tmp/install-xray-reality.sh 2>/dev/null || sed -i 's/\r$//' /tmp/install-xray-reality.sh && chmod +x /tmp/install-xray-reality.sh && bash /tmp/install-xray-reality.sh
+curl -k -fsSL https://raw.githubusercontent.com/Kvilloks/VLESS-Reality-autoinstall/main/install-xray-auto.sh -o /tmp/install-xray-auto.sh && dos2unix /tmp/install-xray-auto.sh 2>/dev/null || sed -i 's/\r$//' /tmp/install-xray-auto.sh && chmod +x /tmp/install-xray-auto.sh && bash /tmp/install-xray-auto.sh
 ```
 
 ### Manual Usage
